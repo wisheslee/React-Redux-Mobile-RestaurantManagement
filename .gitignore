@@ -19,3 +19,5 @@ yarn-error.log*
 #忽略vscode配置文件夹
 .vscode
 
+biji.md
+
