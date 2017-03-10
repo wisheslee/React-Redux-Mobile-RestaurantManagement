@@ -16,3 +16,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+#忽略vscode配置文件夹
+.vscode
+
