@@ -1,6 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Button } from 'antd-mobile';
+import { render } from 'react-dom';
+import routes from './routes/routes.js';
+import '../public/css/font-awesome.min.css';
+import './index.css';
+render(routes, document.querySelector('#root'))
 
-ReactDOM.render(<Button>Start</Button>, document.querySelector('#root'));
 
