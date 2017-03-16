@@ -1,0 +1,33 @@
+.active {
+  color: #38c6b3;
+}
+.active i,
+.active p {
+  color: #38c6b3;
+}
+.wrap {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  border-top: 1px solid #f1f1f2;
+}
+.wrap ul {
+  display: flex;
+  height: 50px;
+}
+.wrap ul li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 14px;
+}
+.wrap ul li a {
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+.wrap ul li a i {
+  font-size: 20px;
+}
