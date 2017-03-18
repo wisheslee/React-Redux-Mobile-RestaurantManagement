@@ -1,5 +1,8 @@
+/**
+ * 这个文件导出一个根组件，提供给Root.js
+ */
 import React, { Component } from 'react';
-import Nav from './Nav.js';
+import Nav from './components/App/Nav.js';
 class App extends Component {
   render() {
     return (

@@ -1,18 +1,18 @@
 import React from 'react';
 import { Router, Route, IndexRedirect, IndexRoute, browserHistory } from 'react-router';
-import App from '../layouts/App.js';
-import Home from '../views/Home.js';
-import Consult from '../views/Consult.js';
-import Record from '../views/Record.js';
-import MyCenter from '../views/MyCenter.js';
-const routes = (
+import App from '../views/App.js';
+import Order from '../views/Order.js';
+import OrderManagement from '../views/OrderManagement.js';
+import TableManagement from '../views/TableManagement.js';
+import MenuManament from '../views/MenuManagement.js';
+const Routes = () => (
   <Router history={browserHistory}>
     <Route path='/' component={App}>
-      <IndexRoute component={Home} />
-      <Route path='consult' component={Consult} />
-      <Route path='record' component={Record} />
-      <Route path='mycenter' component={MyCenter} />
+      <IndexRoute component={Order} />
+      <Route path='order' component={OrderManagement} />
+      <Route path='table' component={TableManagement} />
+      <Route path='menu' component={MenuManament} />
     </Route>
   </Router>
 )
-export default routes;
+export default Routes;

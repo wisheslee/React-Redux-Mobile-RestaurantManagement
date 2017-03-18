@@ -1,7 +1,14 @@
+/**
+ * 负责渲染到HTML
+ */
+import React from 'react'
 import { render } from 'react-dom';
-import routes from './routes/routes.js';
-import '../public/css/font-awesome.min.css';
+import Root from './views/Root.js';
+import './theme/css/font-awesome.min.css';
 import './index.css';
-render(routes, document.querySelector('#root'))
+render(
+  <Root />,
+  document.querySelector('#root')
+)
 
 
