@@ -45,6 +45,7 @@
     "less-loader": "^3.0.0",
     "object-assign": "4.1.1",
     "postcss-loader": "1.2.2",
+    "postcss-pxtorem": "^4.0.0",
     "promise": "7.1.1",
     "react-dev-utils": "^0.5.2",
     "style-loader": "0.13.1",
@@ -90,5 +91,10 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "theme": {
+    "primary-color": "#38c6b3",
+    "link-color": "#38c6b3",
+    "brand-primary": "#38c6b3"
   }
 }

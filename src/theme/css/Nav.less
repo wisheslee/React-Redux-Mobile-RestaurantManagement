@@ -1,30 +1,34 @@
+@import './base.less';
 .active{
-  color: #38c6b3;
+  color: @basecolor;
   i,p{
-    color:#38c6b3
+    color:@basecolor;
   }
 }
 .wrap{
   position: fixed;
   bottom:0px;
   width: 100%;
-  border-top:1px solid #f1f1f2; 
+  border-top:1px solid rgb(221, 221, 221); 
   ul{
     display: flex;
-    height: 50px;
+    height: 100px;
+    background-color: #fff;
     li{
       flex:1;
       display:flex;
-      align-items: center;
-      justify-content: center;
+      justify-content:center;
+      align-items:center;
       color: #333;
-      font-size: 14px;
+      font-size: 24px;
       a{
         text-align: center;
         cursor: pointer;
         width: 100%;
+        align-items:center;
+        line-height: 36px;
         i{
-          font-size: 20px;
+          font-size: 26px;
         }
       }
     }

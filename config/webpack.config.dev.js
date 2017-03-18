@@ -7,6 +7,7 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 var getClientEnvironment = require('./env');
 var paths = require('./paths');
+const pxtorem = require('postcss-pxtorem');
 
 
 
@@ -169,10 +170,18 @@ module.exports = {
       // Remember to add the new extension(s) to the "url" loader exclusion list.
     ]
   },
-
+  babel: {
+    plugins: [
+      ['import', { libraryName: 'antd-mobile', style: 'css' }]
+    ]
+  }
   // We use PostCSS for autoprefixing only.
-  postcss: function () {
+  , postcss: function () {
     return [
+      pxtorem({
+        rootValue: 100,
+        propWhiteList: [],
+      }),
       autoprefixer({
         browsers: [
           '>1%',
