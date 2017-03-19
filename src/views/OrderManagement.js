@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Tabs } from 'antd-mobile';
-import ListItem from './components/Order/ListItem.js';
+import ListItem from './components/OrderManagement/ListItem.js';
 const TabPane = Tabs.TabPane;
 class OrderManagement extends Component {
   render() {

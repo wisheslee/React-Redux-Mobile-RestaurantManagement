@@ -7,7 +7,9 @@
 import { FETCHING, RECEIVE_MENULIST } from '../actions/actions.js';
 //reducers
 export default function posts(state = {
-  isFetching: false
+  //注意这里要为state赋一个初始值,特别是menuList,不然第一次加载时undefined,map方法报错
+  isFetching: false,
+  menuList: []
 }, action) {
   switch (action.type) {
     case FETCHING:

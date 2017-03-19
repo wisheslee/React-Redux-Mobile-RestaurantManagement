@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //引入antd组件
-import { Tabs } from 'antd-mobile';
 //引入自定义组件
-
+import SideBar from './components/Order/SideBar.js';
 //引入样式
 import style from '../theme/css/Order.less';
 //引入actions
 import { fetchMenuList } from '../actions/actions.js';
 //tab组件里面的tab页
-const TabPane = Tabs.TabPane;
 class Order extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
@@ -22,14 +20,12 @@ class Order extends Component {
       <div className={style.wrap}>
         {
           !isFetching &&
-          <Tabs defaultActiveKey="1">
-            <TabPane tab="进行中" key="1">
-              {data}
-            </TabPane>
-            <TabPane tab="历史订单" key="2">
-
-            </TabPane>
-          </Tabs>
+          <div className={style.normal}>
+            <header>
+              菜单
+            </header>
+            <SideBar data={data} />
+          </div>
         }
         {
           isFetching &&
