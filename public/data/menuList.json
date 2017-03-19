@@ -1,7 +1,77 @@
 [
-  "特价菜",
-  "特色菜",
-  "荤菜",
-  "素菜",
-  "酒水"
+  {
+    "title": "特价菜",
+    "content": [
+      {
+        "title": "干拌千层肚",
+        "url": "/img/特价菜/干拌千层肚.jpg",
+        "price": 32
+      },
+      {
+        "title": "干拌千层肚",
+        "url": "/img/特价菜/干拌千层肚.jpg",
+        "price": 32
+      }
+    ]
+  },
+  {
+    "title": "特色菜",
+    "content": [
+      {
+        "title": "干拌千层肚",
+        "url": "/img/特价菜/干拌千层肚.jpg",
+        "price": 32
+      },
+      {
+        "title": "干拌千层肚",
+        "url": "/img/特价菜/干拌千层肚.jpg",
+        "price": 32
+      }
+    ]
+  },
+  {
+    "title": "荤菜",
+    "content": [
+      {
+        "title": "干拌千层肚",
+        "url": "/img/特价菜/干拌千层肚.jpg",
+        "price": 32
+      },
+      {
+        "title": "干拌千层肚",
+        "url": "/img/特价菜/干拌千层肚.jpg",
+        "price": 32
+      }
+    ]
+  },
+  {
+    "title": "素菜",
+    "content": [
+      {
+        "title": "干拌千层肚",
+        "url": "/img/特价菜/干拌千层肚.jpg",
+        "price": 32
+      },
+      {
+        "title": "干拌千层肚",
+        "url": "/img/特价菜/干拌千层肚.jpg",
+        "price": 32
+      }
+    ]
+  },
+  {
+    "title": "酒水",
+    "content": [
+      {
+        "title": "干拌千层肚",
+        "url": "/img/特价菜/干拌千层肚.jpg",
+        "price": 32
+      },
+      {
+        "title": "干拌千层肚",
+        "url": "/img/特价菜/干拌千层肚.jpg",
+        "price": 32
+      }
+    ]
+  }
 ]

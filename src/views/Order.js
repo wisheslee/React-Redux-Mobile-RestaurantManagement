@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //引入antd组件
 //引入自定义组件
-import SideBar from './components/Order/SideBar.js';
+import Tab from './components/Order/Tab.js';
 //引入样式
 import style from '../theme/css/Order.less';
 //引入actions
@@ -24,7 +24,9 @@ class Order extends Component {
             <header>
               菜单
             </header>
-            <SideBar data={data} />
+            <div>
+              <Tab data={data} />
+            </div>
           </div>
         }
         {
