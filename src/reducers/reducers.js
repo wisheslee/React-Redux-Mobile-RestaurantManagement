@@ -3,6 +3,23 @@
  */
 
 // import { CombineReducers } from 'redux';
-export default function () {
-
+//这一步是引入constants
+import { FETCHING, RECEIVE_MENULIST } from '../actions/actions.js';
+//reducers
+export default function posts(state = {
+  isFetching: false
+}, action) {
+  switch (action.type) {
+    case FETCHING:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case RECEIVE_MENULIST:
+      return Object.assign({}, state, {
+        isFetching: false,
+        menuList: action.data
+      })
+    default:
+      return state
+  }
 }

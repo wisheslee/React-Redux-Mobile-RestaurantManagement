@@ -1,15 +1,29 @@
 
 //constants
-export const REQUEST_POSTS = 'REQUEST_POSTS';
-
+export const FETCHING = 'FETCHING';
+export const RECEIVE_MENULIST = 'RECEIVE_MENULIST';
 //action creator
-export function requestPosts() {
+export function fetching() {
   return {
-    type: REQUEST_POSTS
+    type: FETCHING
   }
 }
+export function receiveMenuList(data) {
+  return {
+    type: RECEIVE_MENULIST,
+    data
+  }
+}
+//创建一个异步的action,先dispatch一个loading状态,再dispatch请求
 export function fetchMenuList() {
   return dispatch => {
-    dispatch(requestPosts())
+    dispatch(fetching());
+    fetch('/data/menuList.json')
+      .then(res => res.json())
+      .then(json => {
+        setTimeout(function () {
+          dispatch(receiveMenuList(json))
+        }, 300)
+      })
   }
 }

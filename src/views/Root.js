@@ -8,7 +8,6 @@ import Router from '../routes/routes.js';
 const store = configureStore();
 // import { createStore } from 'redux';
 // import reducers from '../reducers/reducers.js';
-// const store = createStore(function () { });
 const Root = () => (
   <Provider store={store}>
     <Router />

@@ -1,26 +1,51 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+//引入antd组件
 import { Tabs } from 'antd-mobile';
+//引入自定义组件
+
+//引入样式
+import style from '../theme/css/Order.less';
+//引入actions
+import { fetchMenuList } from '../actions/actions.js';
 //tab组件里面的tab页
 const TabPane = Tabs.TabPane;
 class Order extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch()
+    dispatch(fetchMenuList())
   }
 
   render() {
+    const { isFetching, data } = this.props
     return (
-      <div>
-        <Tabs defaultActiveKey="1">
-          <TabPane tab="进行中" key="1">
-          </TabPane>
-          <TabPane tab="历史订单" key="2">
+      <div className={style.wrap}>
+        {
+          !isFetching &&
+          <Tabs defaultActiveKey="1">
+            <TabPane tab="进行中" key="1">
+              {data}
+            </TabPane>
+            <TabPane tab="历史订单" key="2">
 
-          </TabPane>
-        </Tabs>
+            </TabPane>
+          </Tabs>
+        }
+        {
+          isFetching &&
+          <div className={style.loading} >
+            <img src={require('../theme/img/loading.gif')} alt="" />
+          </div>
+        }
       </div>
     )
   }
 }
-export default connect()(Order);
+function mapStateToProps(state) {
+  return {
+    isFetching: state.isFetching,
+    data: state.menuList
+    //注意这里不能直接返回state,因为组件不需要监听整个state树的变化,如果这样做,每次state变化,组件就会重新渲染.mapStateToProps一旦被定义,那么组件就会监听state树
+  }
+}
+export default connect(mapStateToProps)(Order);
