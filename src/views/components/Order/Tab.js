@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import style from '../../../theme/css/Tab.less';
 import Calc from './Calc.js';
+
 class Tab extends Component {
   constructor(props) {
     super();

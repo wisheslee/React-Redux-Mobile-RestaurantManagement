@@ -1,6 +1,41 @@
+@import './base.less';
 .wrap{
   position: absolute;
+  z-index: -1;
+  bottom: 100px;
   width: 100%;
-  height: 200px;
-  background-color: red;
+  background-color: #fff;
+  color: #333;
+  >p{
+    height:80px;
+    line-height: 80px;
+    background-color: #ECEFF1;
+    >span{
+      margin-left: 20px;
+      padding-left: 10px;
+      border-left: 10px solid @basecolor;
+    }
+    >i{
+      float:right;
+      padding-right: 20px;
+      line-height: 80px;
+    }
+  }
+  ul>li{
+    display: flex;
+    line-height: 80px;
+    height: 80px;
+    border-bottom: 1px solid @bordercolor;
+    span:nth-child(1){
+      flex:0 0 40%;
+      padding-left: 20px;
+    }
+    span:nth-child(2){
+      width: 50px;
+      color:@basecolor;
+    }
+    &:last-child{
+      border: 0px;
+    }
+  }
 }

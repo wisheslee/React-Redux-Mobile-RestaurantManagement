@@ -50,6 +50,7 @@ function mapStateToProps(state) {
   return {
     isFetching: state.posts.isFetching,
     data: state.posts.menuList
+
     //注意这里不能直接返回state,因为组件不需要监听整个state树的变化,如果这样做,每次state变化,组件就会重新渲染.mapStateToProps一旦被定义,那么组件就会监听state树
   }
 }

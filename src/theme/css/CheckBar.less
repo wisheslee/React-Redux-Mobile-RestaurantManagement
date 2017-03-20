@@ -8,8 +8,11 @@
   background-color: #FFFEFD;
   border-top: 1px solid @bordercolor;
   display:flex;
-  p{
+  >p{
+    position: relative;
+    z-index: 666;
     flex:1;
+    background-color: #FFFEFD;
     line-height: 100px;
     color: #888;
     padding-left: 80px;
@@ -40,10 +43,13 @@
   background-color: #ffffff;
   border-top: 1px solid @bordercolor;
   display:flex;
-  p{
+  >p{
     flex:1;
+    position: relative;
+    z-index: 666;
     line-height: 100px;
     color: #333;
+    background-color: #FFFEFD;
     padding-left: 80px;
     .price{
       padding: 0px 10px;

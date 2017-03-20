@@ -7,7 +7,7 @@ class CheckBar extends Component {
   constructor(props) {
     super();
     this.state = {
-      detailShow: false
+      detailShow: true
     }
   }
   handleDetailClick() {
@@ -25,11 +25,12 @@ class CheckBar extends Component {
       <div className={priceCount ? style.active : style.normal}>
         <ReactCSSTransitionGroup
           transitionName='detail'
-          transitionEnterTimeout={1000}
-          transitionLeaveTimeout={300}>
+          transitionEnterTimeout={200}
+          transitionLeaveTimeout={200}
+          component='div'>
           {
             this.state.detailShow &&
-            <Detail />
+            <Detail data={this.props.data} />
           }
         </ReactCSSTransitionGroup>
         <p onClick={() => { this.handleDetailClick() }}>
