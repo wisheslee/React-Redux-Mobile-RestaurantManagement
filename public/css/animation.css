@@ -1,0 +1,22 @@
+/*开始动画的css属性*/
+.detail{
+  position: fixed;
+  bottom: 300px;
+}
+/*.detail-enter {
+  opacity: 0.01;
+}*/
+/*结束动画的css属性,要和原有样式一致*/
+/*.detail-enter.detail-enter-active {
+  opacity: 1;
+  transition: all 1000ms linear;
+}*/
+
+/*.detail-leave {
+  opacity: 1;
+}*/
+
+/*.detail-leave.detail-leave-active {
+  opacity: 0.01;
+  transition: all 300ms linear;
+}*/

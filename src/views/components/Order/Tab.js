@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import style from '../../../theme/css/Tab.less';
+import Calc from './Calc.js';
 class Tab extends Component {
   constructor(props) {
     super();
@@ -26,7 +27,7 @@ class Tab extends Component {
             <div key={index} className={this.checkContentIndex(index)}>
               {item.content.map((item, index) =>
                 <div key={index} className={style.panel}>
-                  <div>
+                  <div className={style.img}>
                     <img src={item.url} alt="" />
                   </div>
                   <div>
@@ -34,9 +35,7 @@ class Tab extends Component {
                     <p className={style.price}>￥{item.price}</p>
                   </div>
                   <div>
-                    <p><i className='fa fa-minus-circle' style={{ color: '#333' }}></i></p>
-                    <p>1</p>
-                    <p><i className='fa fa-plus-circle'></i></p>
+                    <Calc name={item.title} price={item.price} />
                   </div>
                 </div>
               )}

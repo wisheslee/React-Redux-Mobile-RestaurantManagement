@@ -8,9 +8,9 @@ const Routes = () => (
   <Router history={browserHistory}>
     <Route path='/' component={App}>
       <IndexRoute component={OrderManagement} />
-      <Route path='order' component={Order} />
       <Route path='table' component={TableManagement} />
     </Route>
+    <Route path='/order' component={Order} />
   </Router>
 )
 export default Routes;

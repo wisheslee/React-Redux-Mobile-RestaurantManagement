@@ -1,0 +1,65 @@
+@import './base.less';
+.normal{
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  height: 100px;
+  background-color: #FFFEFD;
+  border-top: 1px solid @bordercolor;
+  display:flex;
+  p{
+    flex:1;
+    line-height: 100px;
+    color: #888;
+    padding-left: 80px;
+    .price{
+      padding: 0px 10px;
+    }
+    i{
+      padding:0px 10px;
+      font-size: 36px;
+    }
+  }
+  .btn{
+    width: 200px;
+    line-height: 100px;
+    text-align: center;
+    background-color: #ccc;
+    color: #fff;
+    font-size: 30px;
+  }
+
+}
+.active{
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  height: 100px;
+  background-color: #ffffff;
+  border-top: 1px solid @bordercolor;
+  display:flex;
+  p{
+    flex:1;
+    line-height: 100px;
+    color: #333;
+    padding-left: 80px;
+    .price{
+      padding: 0px 10px;
+      color: @basecolor;
+    }
+    i{
+      padding:0px 10px;
+      font-size: 36px;
+    }
+  }
+  .btn{
+    width: 200px;
+    line-height: 100px;
+    text-align: center;
+    background-color: @basecolor;
+    color: #fff;
+    font-size: 30px;
+  }
+}
