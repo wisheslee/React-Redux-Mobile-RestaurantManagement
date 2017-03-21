@@ -37,7 +37,6 @@ class CalcContainer extends Component {
       fontSize: this.props.fontSize,
       width: '100%'
     }
-    console.log(this.props);
     return (
       <div style={divStyle}>
         {this.state.num ?

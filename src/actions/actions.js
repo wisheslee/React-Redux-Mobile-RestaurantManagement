@@ -2,8 +2,10 @@
 //constants
 export const FETCHING = 'FETCHING';
 export const RECEIVE_MENULIST = 'RECEIVE_MENULIST';
+export const RECEIVE_TABLELIST = 'RECEIVE_TABLELIST';
 export const ADD_FOOD = 'ADD_FOOD';
 export const MINUS_FOOD = 'MINUS_FOOD';
+export const NEW_ORDER = 'NEW_ORDER';
 //action creator
 export function fetching() {
   return {
@@ -13,6 +15,12 @@ export function fetching() {
 export function receiveMenuList(data) {
   return {
     type: RECEIVE_MENULIST,
+    data
+  }
+}
+export function receiveTableList(data) {
+  return {
+    type: RECEIVE_TABLELIST,
     data
   }
 }
@@ -29,6 +37,12 @@ export function minusFood(food) {
     food
   }
 }
+export function newOrder(data) {
+  return {
+    type: NEW_ORDER,
+    data
+  }
+}
 //创建一个异步的action,先dispatch一个loading状态,再dispatch请求
 export function fetchMenuList() {
   return dispatch => {
@@ -38,6 +52,18 @@ export function fetchMenuList() {
       .then(json => {
         setTimeout(function () {
           dispatch(receiveMenuList(json))
+        }, 300)
+      })
+  }
+}
+export function fetchTableList() {
+  return dispatch => {
+    dispatch(fetching());
+    fetch('/data/tableList.json')
+      .then(res => res.json())
+      .then(json => {
+        setTimeout(function () {
+          dispatch(receiveTableList(json))
         }, 300)
       })
   }
