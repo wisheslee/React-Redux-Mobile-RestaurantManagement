@@ -6,6 +6,8 @@ export const RECEIVE_TABLELIST = 'RECEIVE_TABLELIST';
 export const ADD_FOOD = 'ADD_FOOD';
 export const MINUS_FOOD = 'MINUS_FOOD';
 export const NEW_ORDER = 'NEW_ORDER';
+export const ORDER_ADD_MENU = 'ORDER_ADD_MENU';
+export const CLEAR_ORDER = 'CLEAR_ORDER';
 //action creator
 export function fetching() {
   return {
@@ -24,23 +26,41 @@ export function receiveTableList(data) {
     data
   }
 }
-export function addFood(food, price) {
+export function addFood(food, price, kind, orderNum) {
   return {
     type: ADD_FOOD,
     food,
-    price
+    price,
+    kind,
+    orderNum
   }
 }
-export function minusFood(food) {
+export function minusFood(food, price, kind, orderNum) {
   return {
     type: MINUS_FOOD,
-    food
+    food,
+    price,
+    kind,
+    orderNum
   }
 }
 export function newOrder(data) {
   return {
     type: NEW_ORDER,
     data
+  }
+}
+export function orderAddMenu(data, num) {
+  return {
+    type: ORDER_ADD_MENU,
+    data,
+    num
+  }
+}
+export function clearOrder(orderNum) {
+  return {
+    type: CLEAR_ORDER,
+    orderNum
   }
 }
 //创建一个异步的action,先dispatch一个loading状态,再dispatch请求

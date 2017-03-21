@@ -7,9 +7,10 @@ class CheckBar extends Component {
   constructor(props) {
     super();
     this.state = {
-      detailShow: true
+      detailShow: false
     }
   }
+
   handleDetailClick() {
     this.setState({
       detailShow: !this.state.detailShow
@@ -17,8 +18,20 @@ class CheckBar extends Component {
     console.log(this.state.detailShow);
   }
   render() {
+    const { data, orderNum } = this.props;
+    const data1 = data[orderNum].data;
+    let data2 = [];
+    for (let item of data1) {
+      for (let item1 of item.content) {
+        if (item1.num) {
+          let temp = Object.assign({}, item1);
+          temp['kind'] = item.title;
+          data2.push(temp);
+        }
+      }
+    }
     let priceCount = 0;
-    for (let item of this.props.data) {
+    for (let item of data2) {
       priceCount += item.num * item.price
     }
     return (
@@ -30,7 +43,7 @@ class CheckBar extends Component {
           component='div'>
           {
             this.state.detailShow &&
-            <Detail data={this.props.data} />
+            <Detail data={data2} orderNum={orderNum} />
           }
         </ReactCSSTransitionGroup>
         <p onClick={() => { this.handleDetailClick() }}>
@@ -45,14 +58,14 @@ class CheckBar extends Component {
   }
 }
 function mapStateToProps(state) {
-  const data = [];
-  for (let item of state.operateFood) {
-    if (item.num > 0) {
-      data.push(item)
-    }
-  }
+  // const data = [];
+  // for (let item of state.handleOrder) {
+  //   if (item.num > 0) {
+  //     data.push(item)
+  //   }
+  // }
   return {
-    data: data
+    data: state.handleOrder
   }
 }
 export default connect(mapStateToProps)(CheckBar);

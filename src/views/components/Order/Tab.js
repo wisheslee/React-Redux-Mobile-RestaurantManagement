@@ -26,17 +26,17 @@ class Tab extends Component {
         <div>
           {this.props.data.map((item, index) =>
             <div key={index} className={this.checkContentIndex(index)}>
-              {item.content.map((item, index) =>
+              {item.content.map((item1, index) =>
                 <div key={index} className={style.panel}>
                   <div className={style.img}>
-                    <img src={item.url} alt="" />
+                    <img src={item1.url} alt="" />
                   </div>
                   <div>
-                    <p>{item.title}</p>
-                    <p className={style.price}>￥{item.price}</p>
+                    <p>{item1.title}</p>
+                    <p className={style.price}>￥{item1.price}</p>
                   </div>
                   <div>
-                    <Calc name={item.title} price={item.price} />
+                    <Calc name={item1.title} price={item1.price} orderNum={this.props.num} kind={item.title} num={item1.num} />
                   </div>
                 </div>
               )}

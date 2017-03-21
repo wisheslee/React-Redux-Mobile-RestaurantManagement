@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 //引入browserHistory来控制路由
 import { browserHistory } from 'react-router';
 import { ActivityIndicator } from 'antd-mobile';
-import { PickerView, Button, WingBlank, NavBar } from 'antd-mobile';
+import { PickerView, Button, NavBar } from 'antd-mobile';
 import { connect } from 'react-redux';
 import { fetchTableList, newOrder } from '../actions/actions.js';
+import BackBth from './components/Order/BackBtn.js';
 import DevTools from './DevTools.js';
 import style from '../theme/css/Pick.less';
 class Pick extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ['1', '1']
+      value: null
     }
   }
   componentDidMount() {
@@ -24,10 +25,15 @@ class Pick extends Component {
       value
     });
   };
-  handleSubmit() {
-    console.log(this.state.value);
-    this.props.dispatch(newOrder(this.state.value));
-    browserHistory.push(`/order/${this.state.value[0]}`);
+  handleSubmit(data) {
+    if (!this.state.value) {
+      this.props.dispatch(newOrder(data[0][0].value));
+      browserHistory.push(`/order/${data[0][0].value}`);
+    } else {
+      this.props.dispatch(newOrder(this.state.value));
+      browserHistory.push(`/order/${this.state.value[0]}`);
+    }
+
   }
   render() {
     const { isFetching, tableList, orderList } = this.props;
@@ -49,9 +55,10 @@ class Pick extends Component {
           !isFetching &&
           <div className={style.wrap}>
             <div>
-              <NavBar leftContent="返回" mode="dark" onLeftClick={() => browserHistory.push('/')}
-
-              >下单</NavBar>
+              <header>
+                <BackBth url='/' />
+                下单
+              </header>
             </div>
             <div>
               <PickerView
@@ -64,7 +71,7 @@ class Pick extends Component {
             </div>
 
             <div>
-              <Button className="btn" type="primary" size={'large'} across={true} onClick={() => this.handleSubmit()}>下一步</Button>
+              <Button className="btn" type="primary" size={'large'} across={true} onClick={this.handleSubmit.bind(this, data)}>下一步</Button>
             </div>
           </div >
         }
