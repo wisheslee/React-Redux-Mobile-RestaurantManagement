@@ -18,7 +18,6 @@ class CheckBar extends Component {
     this.setState({
       detailShow: !this.state.detailShow
     })
-    console.log(this.state.detailShow);
   }
   render() {
     const { data, orderNum } = this.props;

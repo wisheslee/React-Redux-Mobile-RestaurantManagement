@@ -6,7 +6,6 @@ class CalcContainer extends Component {
     fontSize: '130%',
   }
   handleAdd() {
-    console.log(this.props.orderNum);
     if (this.props.num >= 0) {
       this.props.dispatch(addFood(this.props.name, this.props.price, this.props.kind, this.props.orderNum));
     }

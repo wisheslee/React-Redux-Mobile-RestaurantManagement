@@ -8,7 +8,13 @@ var ManifestPlugin = require('webpack-manifest-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
-
+var paths = require('./paths');
+const pxtorem = require('postcss-pxtorem');
+const path = require('path');
+const svgDirs = [
+  require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
+  // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 2. 自己私人的 svg 存放目录
+];
 
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -78,14 +84,14 @@ module.exports = {
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
     // https://github.com/facebookincubator/create-react-app/issues/290
-    extensions: ['.js', '.json', '.jsx', ''],
+    extensions: ['.web.js', '.js', '.json', '.jsx', ''],
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web'
     }
   },
-  
+
   module: {
     // First, run the linter.
     // It's important to do this before Babel processes the JS.
@@ -110,6 +116,7 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
+          /\.less$/,
           /\.json$/,
           /\.svg$/
         ],
@@ -124,7 +131,11 @@ module.exports = {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
         loader: 'babel',
-        
+        query: {
+          plugins: [
+            ["import", [{ "style": "css", "libraryName": "antd-mobile" }]]
+          ]
+        }
       },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.
@@ -140,12 +151,19 @@ module.exports = {
       // in the main CSS file.
       {
         test: /\.css$/,
+        loader: 'style!css?importLoaders=1!postcss'
+        // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+        /*
         loader: ExtractTextPlugin.extract(
           'style',
           'css?importLoaders=1!postcss',
           extractTextPluginOptions
         )
-        // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+        */
+      },
+      {
+        test: /\.less$/,
+        loader: 'style!css?modules&localIdentName=[local]___[hash:base64:5]!postcss!less'
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
@@ -153,10 +171,16 @@ module.exports = {
         test: /\.json$/,
         loader: 'json'
       },
+      {
+        test: /\.(svg)$/i,
+        loader: 'svg-sprite',
+        include: svgDirs
+      },
       // "file" loader for svg
       {
         test: /\.svg$/,
         loader: 'file',
+        exclude: svgDirs,
         query: {
           name: 'static/media/[name].[hash:8].[ext]'
         }
@@ -165,10 +189,18 @@ module.exports = {
       // Remember to add the new extension(s) to the "url" loader exclusion list.
     ]
   },
-  
+  babel: {
+    plugins: [
+      ['import', { libraryName: 'antd-mobile', style: 'css' }]
+    ]
+  },
   // We use PostCSS for autoprefixing only.
-  postcss: function() {
+  postcss: function () {
     return [
+      pxtorem({
+        rootValue: 100,
+        propWhiteList: [],
+      }),
       autoprefixer({
         browsers: [
           '>1%',

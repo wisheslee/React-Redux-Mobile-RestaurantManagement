@@ -27,7 +27,6 @@ class Order extends Component {
     }
   }
   render() {
-    console.log(this.props.menuList[0] === this.props.orderList[this.props.params.id].data[0]);
     const { isFetching, orderList } = this.props
     const num = this.props.params.id;
     return (

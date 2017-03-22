@@ -85,9 +85,7 @@ export function fetchMenuList() {
     fetch('/data/menuList.json')
       .then(res => res.json())
       .then(json => {
-        setTimeout(function () {
-          dispatch(receiveMenuList(json))
-        }, 300)
+        dispatch(receiveMenuList(json))
       })
   }
 }
@@ -97,9 +95,7 @@ export function fetchTableList() {
     fetch('/data/tableList.json')
       .then(res => res.json())
       .then(json => {
-        setTimeout(function () {
-          dispatch(receiveTableList(json))
-        }, 300)
+        dispatch(receiveTableList(json))
       })
   }
 }

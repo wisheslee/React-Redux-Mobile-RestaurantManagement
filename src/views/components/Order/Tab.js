@@ -16,7 +16,6 @@ class Tab extends Component {
     return index === this.state.currentIndex ? style.contentShow : style.contentHidden
   }
   render() {
-    console.log(this.props.data);
     return (
       <div className={style.wrap}>
         <ul>

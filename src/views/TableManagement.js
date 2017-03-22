@@ -37,7 +37,6 @@ class TableManagement extends Component {
   }
   render() {
     let temp = this.props.data;
-    console.log(temp);
     let data = []
     for (let i = 0; i < 20; i++) {
       data[i] = {

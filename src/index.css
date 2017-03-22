@@ -10,5 +10,7 @@ a{
   color: #333;
   text-decoration: none;
 }
-
+.am-button-across{
+  border-radius: 0px !important;
+}
 

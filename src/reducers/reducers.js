@@ -63,7 +63,6 @@ function handleOrder(state = orderList, action) {
         }
       })
     case ADD_FOOD:
-      console.log(state);
       let temp2 = state[action.orderNum].data.slice();
       for (let item of temp2) {
         if (item.title === action.kind) {

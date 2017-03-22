@@ -26,7 +26,6 @@ class Pick extends Component {
     });
   };
   handleSubmit(data) {
-    console.log(this.state.value);
     //这里要修改,newOrder要传一个数组,第一个是桌数,第二个是人数
     if (!this.state.value) {
       let temp = [];
