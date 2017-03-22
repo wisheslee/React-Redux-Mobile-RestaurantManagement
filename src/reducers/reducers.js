@@ -5,39 +5,13 @@
 
 import { combineReducers } from 'redux';
 //这一步是引入constants
-import { FETCHING, RECEIVE_MENULIST, RECEIVE_TABLELIST, ADD_FOOD, MINUS_FOOD, NEW_ORDER, ORDER_ADD_MENU, CLEAR_ORDER } from '../actions/actions.js';
+import { FETCHING, RECEIVE_MENULIST, RECEIVE_TABLELIST, ADD_FOOD, MINUS_FOOD, NEW_ORDER, ORDER_ADD_MENU, CLEAR_ORDER, COMFIRM_ORDER } from '../actions/actions.js';
 //reducers
 import initState from '../actions/menuList.json';
 let initState1 = [];
 for (let item of initState) {
   initState1 = initState1.concat(item.content)
 }
-// function operateFood(state = initState1, action) {
-//   // let flag = false;
-//   let temp = state.slice();
-//   switch (action.type) {
-//     case ADD_FOOD:
-//       for (let item of temp) {
-//         if (item.title === action.food) {
-//           item.num++;
-//           break;
-//         }
-//       }
-//       return temp
-//     case MINUS_FOOD:
-//       temp.forEach((item, index) => {
-//         if (item.title === action.food) {
-//           item.num--;
-//           // if (item.num === 0) {
-//           //   temp.splice(index, 1)
-//           // }
-//         }
-//       })
-//       return temp;
-//     default:
-//       return state
-//   }
-// }
 function posts(state = {
   isFetching: false,
   menuList: [],
@@ -84,7 +58,7 @@ function handleOrder(state = orderList, action) {
       return Object.assign({}, state, {
         [action.num]: {
           people: state[action.num].people,
-          data: action.data,
+          data: JSON.parse(JSON.stringify(action.data)),
           status: false
         }
       })
@@ -143,6 +117,16 @@ function handleOrder(state = orderList, action) {
           status: false
         }
       })
+    case COMFIRM_ORDER:
+      let temp4 = Object.assign({}, state, {
+        [action.orderNum]: {
+          people: state[action.orderNum].people,
+          data: state[action.orderNum].data,
+          status: true
+        }
+      })
+      sessionStorage.setItem('handleOrder', JSON.stringify(temp4));
+      return temp4;
     default:
       return state
   }

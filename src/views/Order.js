@@ -22,10 +22,12 @@ class Order extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.menuList.length && (!nextProps.orderList[nextProps.params.id].data.length)) {
       //拿到菜单数据后将菜单数据合并到当前客户的数据集
+      //?这里的合并是不是将两个对象建立了联系
       nextProps.dispatch(orderAddMenu(nextProps.menuList, nextProps.params.id))
     }
   }
   render() {
+    console.log(this.props.menuList[0] === this.props.orderList[this.props.params.id].data[0]);
     const { isFetching, orderList } = this.props
     const num = this.props.params.id;
     return (

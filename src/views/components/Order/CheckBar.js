@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Modal } from 'antd-mobile';
+import { browserHistory } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import style from '../../../theme/css/CheckBar.less';
 import { connect } from 'react-redux';
+import { comfirmOrder } from '../../../actions/actions.js';
 import Detail from './Detail.js';
 class CheckBar extends Component {
   constructor(props) {
@@ -34,6 +37,7 @@ class CheckBar extends Component {
     for (let item of data2) {
       priceCount += item.num * item.price
     }
+    const alert = Modal.alert;
     return (
       <div className={priceCount ? style.active : style.normal}>
         <ReactCSSTransitionGroup
@@ -52,18 +56,22 @@ class CheckBar extends Component {
           </span>
           应付款：￥<span className={style.price}>{priceCount}</span>元
         </p>
-        <span className={style.btn}>去结算</span>
+        <span className={style.btn}
+          onClick={() => alert('确定下单吗？', '', [
+            { text: '取消' },
+            {
+              text: '确定', onPress: () => {
+                this.props.dispatch(comfirmOrder(this.props.orderNum));
+                browserHistory.push('/');
+              }, style: { fontWeight: 'bold' }
+            },
+          ])}
+        >去结算</span>
       </div>
     );
   }
 }
 function mapStateToProps(state) {
-  // const data = [];
-  // for (let item of state.handleOrder) {
-  //   if (item.num > 0) {
-  //     data.push(item)
-  //   }
-  // }
   return {
     data: state.handleOrder
   }

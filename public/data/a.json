@@ -1,0 +1,201 @@
+{
+  "1": {
+    "people": "1",
+    "data": [
+      {
+        "title": "特价菜",
+        "content": [
+          {
+            "title": "干拌千层肚",
+            "num": 1,
+            "price": 30,
+            "url": "/img/特价菜/干拌千层肚.jpg"
+          },
+          {
+            "title": "卤鸡脚",
+            "num": 0,
+            "price": 50,
+            "url": "/img/特价菜/卤鸡脚.jpg"
+          },
+          {
+            "title": "啤酒",
+            "num": 0,
+            "price": 45,
+            "url": "/img/特价菜/啤酒.jpg"
+          },
+          {
+            "title": "土豆烧排骨",
+            "num": 0,
+            "price": 30,
+            "url": "/img/特价菜/土豆烧排骨.jpg"
+          },
+          {
+            "title": "煮花生",
+            "num": 0,
+            "price": 20,
+            "url": "/img/特价菜/煮花生.jpg"
+          },
+          {
+            "title": "孜然土豆片",
+            "num": 0,
+            "price": 45,
+            "url": "/img/特价菜/孜然土豆片.jpg"
+          }
+        ]
+      },
+      {
+        "title": "特色菜",
+        "content": [
+          {
+            "title": "火爆黄喉",
+            "num": 0,
+            "price": 50,
+            "url": "/img/特色菜/火爆黄喉.jpg"
+          },
+          {
+            "title": "火爆虾",
+            "num": 0,
+            "price": 100,
+            "url": "/img/特色菜/火爆虾.jpg"
+          },
+          {
+            "title": "卤翅膀",
+            "num": 0,
+            "price": 80,
+            "url": "/img/特色菜/卤翅膀.jpg"
+          },
+          {
+            "title": "卤鸭脖子",
+            "num": 0,
+            "price": 30,
+            "url": "/img/特色菜/卤鸭脖子.jpg"
+          },
+          {
+            "title": "脑花",
+            "num": 0,
+            "price": 15,
+            "url": "/img/特色菜/脑花.jpg"
+          },
+          {
+            "title": "青椒玉米",
+            "num": 0,
+            "price": 30,
+            "url": "/img/特色菜/青椒玉米.jpg"
+          },
+          {
+            "title": "小龙虾",
+            "num": 0,
+            "price": 20,
+            "url": "/img/特色菜/小龙虾.jpg"
+          },
+          {
+            "title": "鸭脑壳",
+            "num": 0,
+            "price": 40,
+            "url": "/img/特色菜/鸭脑壳.jpg"
+          }
+        ]
+      },
+      {
+        "title": "热菜",
+        "content": [
+          {
+            "title": "干锅虾",
+            "num": 0,
+            "price": 100,
+            "url": "/img/热菜/干锅虾.jpg"
+          },
+          {
+            "title": "红烧肉",
+            "num": 0,
+            "price": 40,
+            "url": "/img/热菜/红烧肉.jpg"
+          },
+          {
+            "title": "火爆鸭舌",
+            "num": 0,
+            "price": 60,
+            "url": "/img/热菜/火爆鸭舌.jpg"
+          },
+          {
+            "title": "火爆腰花",
+            "num": 0,
+            "price": 30,
+            "url": "/img/热菜/火爆腰花.jpg"
+          },
+          {
+            "title": "辣子鸡",
+            "num": 0,
+            "price": 50,
+            "url": "/img/热菜/辣子鸡.jpg"
+          },
+          {
+            "title": "牛肉两吃",
+            "num": 0,
+            "price": 40,
+            "url": "/img/热菜/牛肉两吃.jpg"
+          }
+        ]
+      },
+      {
+        "title": "素菜",
+        "content": [
+          {
+            "title": "炝炒油菜",
+            "num": 0,
+            "price": 16,
+            "url": "/img/素菜/炝炒油菜.jpg"
+          },
+          {
+            "title": "蒜苗豆干",
+            "num": 0,
+            "price": 20,
+            "url": "/img/素菜/蒜苗豆干.jpg"
+          }
+        ]
+      },
+      {
+        "title": "酒水",
+        "content": [
+          {
+            "title": "峨眉雪",
+            "num": 0,
+            "price": 5,
+            "url": "/img/酒水/峨眉雪.jpg"
+          },
+          {
+            "title": "劲酒",
+            "num": 0,
+            "price": 20,
+            "url": "/img/酒水/劲酒.jpg"
+          },
+          {
+            "title": "可乐",
+            "num": 0,
+            "price": 5,
+            "url": "/img/酒水/可乐.jpg"
+          },
+          {
+            "title": "郎酒",
+            "num": 0,
+            "price": 20,
+            "url": "/img/酒水/郎酒.jpg"
+          },
+          {
+            "title": "酸角汁",
+            "num": 0,
+            "price": 10,
+            "url": "/img/酒水/酸角汁.jpg"
+          },
+          {
+            "title": "唯怡",
+            "num": 0,
+            "price": 10,
+            "url": "/img/酒水/唯怡.jpg"
+          }
+        ]
+      }
+    ],
+    "status": true
+  }
+}

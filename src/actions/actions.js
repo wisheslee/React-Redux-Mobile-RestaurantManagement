@@ -8,6 +8,7 @@ export const MINUS_FOOD = 'MINUS_FOOD';
 export const NEW_ORDER = 'NEW_ORDER';
 export const ORDER_ADD_MENU = 'ORDER_ADD_MENU';
 export const CLEAR_ORDER = 'CLEAR_ORDER';
+export const COMFIRM_ORDER = 'COMFIRM_ORDER';
 //action creator
 export function fetching() {
   return {
@@ -60,6 +61,12 @@ export function orderAddMenu(data, num) {
 export function clearOrder(orderNum) {
   return {
     type: CLEAR_ORDER,
+    orderNum
+  }
+}
+export function comfirmOrder(orderNum) {
+  return {
+    type: COMFIRM_ORDER,
     orderNum
   }
 }

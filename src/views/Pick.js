@@ -26,8 +26,13 @@ class Pick extends Component {
     });
   };
   handleSubmit(data) {
+    console.log(this.state.value);
+    //这里要修改,newOrder要传一个数组,第一个是桌数,第二个是人数
     if (!this.state.value) {
-      this.props.dispatch(newOrder(data[0][0].value));
+      let temp = [];
+      temp[0] = data[0][0].value;
+      temp[1] = data[1][0].value
+      this.props.dispatch(newOrder(temp));
       browserHistory.push(`/order/${data[0][0].value}`);
     } else {
       this.props.dispatch(newOrder(this.state.value));
@@ -43,7 +48,12 @@ class Pick extends Component {
     //在render之前,将桌台数进行去重
     if (tableList[0]) {
       for (let item of tableList[0]) {
+        //如果下单列表中没有这一桌,列入卓台数
         if (!orderList[item.value]) {
+          data[0].push(item)
+        }
+        //如果下单列表中有这一桌,但是状态为false,还是列入卓台数
+        if (orderList[item.value] && !orderList[item.value].status) {
           data[0].push(item)
         }
       }
