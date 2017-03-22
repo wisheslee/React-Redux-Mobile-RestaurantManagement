@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding:0;
+  font-family: 'Segoe UI',Arial,'微软雅黑'
 }
 ul{
   list-style: none;
@@ -9,4 +10,5 @@ a{
   color: #333;
   text-decoration: none;
 }
+
 

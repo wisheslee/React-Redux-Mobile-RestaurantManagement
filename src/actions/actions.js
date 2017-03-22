@@ -9,6 +9,7 @@ export const NEW_ORDER = 'NEW_ORDER';
 export const ORDER_ADD_MENU = 'ORDER_ADD_MENU';
 export const CLEAR_ORDER = 'CLEAR_ORDER';
 export const COMFIRM_ORDER = 'COMFIRM_ORDER';
+export const CHECK_OUT = 'CHECK_OUT';
 //action creator
 export function fetching() {
   return {
@@ -64,9 +65,16 @@ export function clearOrder(orderNum) {
     orderNum
   }
 }
-export function comfirmOrder(orderNum) {
+export function comfirmOrder(orderNum, date) {
   return {
     type: COMFIRM_ORDER,
+    orderNum,
+    date
+  }
+}
+export function checkOut(orderNum) {
+  return {
+    type: CHECK_OUT,
     orderNum
   }
 }

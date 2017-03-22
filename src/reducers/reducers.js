@@ -5,7 +5,7 @@
 
 import { combineReducers } from 'redux';
 //这一步是引入constants
-import { FETCHING, RECEIVE_MENULIST, RECEIVE_TABLELIST, ADD_FOOD, MINUS_FOOD, NEW_ORDER, ORDER_ADD_MENU, CLEAR_ORDER, COMFIRM_ORDER } from '../actions/actions.js';
+import { FETCHING, RECEIVE_MENULIST, RECEIVE_TABLELIST, ADD_FOOD, MINUS_FOOD, NEW_ORDER, ORDER_ADD_MENU, CLEAR_ORDER, COMFIRM_ORDER, CHECK_OUT } from '../actions/actions.js';
 //reducers
 import initState from '../actions/menuList.json';
 let initState1 = [];
@@ -122,11 +122,17 @@ function handleOrder(state = orderList, action) {
         [action.orderNum]: {
           people: state[action.orderNum].people,
           data: state[action.orderNum].data,
-          status: true
+          status: true,
+          date: action.date,
+          num: action.orderNum
         }
       })
       sessionStorage.setItem('handleOrder', JSON.stringify(temp4));
       return temp4;
+    case CHECK_OUT:
+      let temp5 = Object.assign({}, state);
+      delete temp5[action.orderNum];
+      return temp5;
     default:
       return state
   }

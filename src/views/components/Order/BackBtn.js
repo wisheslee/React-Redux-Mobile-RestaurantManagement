@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { browserHistory } from 'react-router';
 import style from '../../../theme/css/BackBtn.less';
 class BackBtn extends Component {
+  handleClick() {
+    browserHistory.goBack();
+  }
   render() {
     return (
-      <Link to={this.props.url} className={style.wrap}>
+      <span className={style.wrap} onClick={this.handleClick.bind(this)}>
         <i className='fa fa-chevron-left'></i>
-      </Link>
+      </span>
     );
   }
 }

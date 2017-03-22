@@ -57,15 +57,26 @@ class CheckBar extends Component {
           应付款：￥<span className={style.price}>{priceCount}</span>元
         </p>
         <span className={style.btn}
-          onClick={() => alert('确定下单吗？', '', [
-            { text: '取消' },
-            {
-              text: '确定', onPress: () => {
-                this.props.dispatch(comfirmOrder(this.props.orderNum));
-                browserHistory.push('/');
-              }, style: { fontWeight: 'bold' }
-            },
-          ])}
+          onClick={() => {
+            if (priceCount) {
+              return alert('确定下单吗？', '', [
+                { text: '取消' },
+                {
+                  text: '确定', onPress: () => {
+                    let d = new Date()
+                    let min = d.getMinutes().length === 1 ? `0${d.getMinutes()}` : d.getMinutes()
+                    let d1 = d.getHours() + ":" + min;
+                    this.props.dispatch(comfirmOrder(this.props.orderNum, d1));
+                    browserHistory.push('/');
+                  }, style: { fontWeight: 'bold' }
+                },
+              ])
+            } else {
+              return alert('您还没有选餐哦~', '', [
+                { text: '确定', style: { fontWeight: 'bold' } },
+              ])
+            }
+          }}
         >去结算</span>
       </div>
     );
